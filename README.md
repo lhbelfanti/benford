@@ -1,3 +1,3 @@
-# benford
+# Benford's Law
 
-Benford's law validator.
+This repository contains functions to validate if a set of values fits with the Benford's Law.
