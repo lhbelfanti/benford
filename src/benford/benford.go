@@ -11,8 +11,8 @@ func LawNumbers() []Digit {
 	var p []Digit
 	l := len(BN) + 1
 	for i := 1; i < l; i++ {
-		log := math.Log10(1 + (1 / float64(i))) * 100
-		p = append(p, Digit{ Num: i, Prob: log})
+		log := math.Log10(1+(1/float64(i))) * 100
+		p = append(p, Digit{Num: i, Prob: log})
 	}
 
 	return p
@@ -33,19 +33,20 @@ func Probabilities(data []float64) []Digit {
 	var p []Digit
 	for k, v := range ds {
 		per := (float64(v) * 100) / float64(t)
-		p = append(p, Digit{ Num: k, Prob: per})
+		p = append(p, Digit{Num: k, Prob: per})
 	}
 
 	return p
 }
 
+// ValidateLaw validates if a distribution fits the "Benford's law compliance theorem"
 func ValidateLaw(observed, expected []Digit) {
 	obs := ByNum(observed).ConvertToFloat()
 	exp := ByNum(expected).ConvertToFloat()
 	f := ChiSquaredTest(obs, exp)
 
 	for i := 0; i < len(BN); i++ {
-		fmt.Printf("%d:\tObserverd: %f\tExpected: %f\n", i + 1, obs[i], exp[i])
+		fmt.Printf("%d:\tObserverd: %f\tExpected: %f\n", i+1, obs[i], exp[i])
 	}
 
 	fmt.Println("Chi-Square Value:", f)

@@ -13,11 +13,12 @@ type Digit struct {
 
 // ByNum is used to sort the Digit struct by Num.
 type ByNum []Digit
+
 func (n ByNum) Len() int           { return len(n) }
 func (n ByNum) Swap(i, j int)      { n[i], n[j] = n[j], n[i] }
 func (n ByNum) Less(i, j int) bool { return n[i].Num < n[j].Num }
 
-// completeSlice adds the missing Benford's numbers to the slice with a probability of 0. It's useful to run the
+// CompleteSlice adds the missing Benford's numbers to the slice with a probability of 0. It's useful to run the
 // Chi-Square test with two slices with the same length.
 func (n ByNum) CompleteSlice() []Digit {
 	if len(n) == len(BN) {
@@ -47,7 +48,7 @@ func (n ByNum) CompleteSlice() []Digit {
 
 func (n ByNum) ConvertToFloat() []float64 {
 	var c []float64
-	for _, v := range n{
+	for _, v := range n {
 		c = append(c, v.Prob)
 	}
 	return c
@@ -57,7 +58,7 @@ func (n ByNum) ConvertToFloat() []float64 {
 func leadingDigit(v int) int {
 	l := len(BN)
 	for v > l {
-		v = v/10
+		v = v / 10
 	}
 	return v
 }
