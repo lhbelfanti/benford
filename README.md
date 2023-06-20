@@ -6,7 +6,7 @@
 <p align="center">
     <img src="https://img.shields.io/github/repo-size/lhbelfanti/benford?label=Repo%20size" alt="Repo size" />
     <img src="https://img.shields.io/github/license/lhbelfanti/benford?label=License" alt="License" />
-    <a href="">
+    <a href="https://godocs.io/github.com/lhbelfanti/benford/src/benford">
       <img src="https://img.shields.io/badge/go-%2300ADD8.svg?logo=go&logoColor=white&label=Reference" alt="Go Reference" />
     </a>
 </p>
